@@ -1,0 +1,103 @@
+// colors
+// #viewPortSize{ display: block!important; }
+$blue: #00c4d9;
+$dark: #111c24;
+$background: #333;
+
+$max1400: 'max-width: 1400px';
+$max1200: 'max-width: 1200px';
+$max992: 'max-width: 992px';
+$max768: 'max-width: 768px';
+$max640: 'max-width: 640px';
+$max560: 'max-width: 560px';
+$max480: 'max-width: 480px';
+$max400: 'max-width: 400px';
+
+$portrait: 'orientation: portrait';
+$landscape: 'orientation: landscape';
+
+
+$footer-height: 40px;
+$font-size-regular: 15px;
+$font-size-small: 13px;
+
+
+// black
+$dark: #1e1e1e;
+$mid: #252525;
+$mid: lighten(#252525, 5);
+$light: #999;
+
+
+
+
+@mixin font-size{
+  font-size: $font-size-regular;
+  @media( $max640 ){
+		font-size: $font-size-small;
+	}
+}
+.hidden{
+  display: none;
+}
+
+.table{
+  display: table;
+}
+
+.relative{
+  position: relative;
+}
+
+.opacity-null{
+  opacity: 0;
+}
+
+.display-none{
+  display: none;
+}
+
+.overflow-hidden{
+  overflow: hidden!important;
+}
+
+.pointer-none{
+  pointer-events: none;
+}
+
+.nobr{
+  white-space: nowrap;
+}
+
+.margin-left-auto{
+  margin-left: auto;
+}
+
+.section-inner{
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.background-blue{
+  background-color: $blue;
+}
+
+.margin-top-extra{
+  margin-top: 4em;
+}
+
+img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+
+button{
+  cursor: pointer;
+}
+

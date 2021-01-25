@@ -1,0 +1,38 @@
+
+
+body, html{
+  background: $dark;
+}
+
+.info-text{
+  color: $light;
+}
+
+.taskbar{
+  background:$mid;
+
+  .address-bar{
+    background-color: $light;
+  }
+
+  .progress-bar{
+    background-color: $light;
+  }
+
+  svg path{
+    fill: white;
+    opacity: 0.55;
+  }
+}
+
+.browser-container{
+  background:$mid;
+}
+
+#stars{
+  background: $dark;
+}
+
+.message svg polygon{
+  fill: $light;
+}

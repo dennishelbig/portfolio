@@ -1,0 +1,62 @@
+.browser{
+  transform: translateZ(0);
+}
+
+html,body{
+  position: relative;
+}
+
+.stars{
+  z-index: 0;
+  
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+
+
+  &.one{
+    height: 100vh;
+  }
+  &.two{
+    height: 133vh;
+  }
+  &.three{
+    height: 200vh;
+  }
+}
+
+
+.star{
+  background: rgba(white, 0.9);
+  border-radius: 50%;
+  position: absolute;
+
+  :nth-child(2){
+    animation-delay: 2s;
+  }
+  :nth-child(3){
+    animation-delay: 4s;
+  }
+}
+
+
+.stars.one .star{
+  width: 1px; 
+  height: 1px; 
+}
+
+.stars.two .star{
+  width: 2px; 
+  height: 2px; 
+}
+
+.stars.three .star{
+  width: 3px; 
+  height: 3px; 
+
+  @media( max-width: 480px){
+    width: 2px; 
+    height: 2px; 
+  }
+}

@@ -1,0 +1,202 @@
+.browser{
+  position: relative;
+	width: 45vw;
+  height: calc( ( 45vw * 0.6666 ) + 30px );// ratio 3/2
+  z-index: 10;
+
+  @media( $portrait ){
+	  width: 95vw;
+    height: calc(( 95vw * 0.6666) + 30px); // ratio 3/2
+    margin: 0 auto 5vw;
+    border-radius: 1vw;
+  } 
+
+  .browser-container{
+    border-radius: 0.5vw;
+    overflow: hidden;
+    @media( $portrait ){
+      border-radius: 1vw;
+    }
+  }
+
+  @keyframes rotate{
+    0%{
+      transform: translate(-50%,-50%) rotate(0) scale(0.5);
+    }
+    100%{
+      transform: translate(-50%,-50%) rotate(360deg) scale(0.5);
+    }
+  }
+
+  video{
+    position: relative;
+    z-index: 1;
+  }
+
+
+  .loading{
+    position: absolute;
+    width: 30%;
+    height: 45%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    background-image: url('../images/loading.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    animation-name: rotate;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+  }
+}
+
+
+.row{
+	transform: rotateY( 0.01deg );
+  
+  @media( $portrait ){
+    overflow: visible;
+    transform: rotateX( 0deg );
+  }
+} 
+
+
+.browser-container{
+  position: relative;
+  top: 0;
+	bottom: 0;
+	height: 100%;
+  width: 100%;
+  //bigger
+}
+
+// ration = 3 / 2
+.browser-content{
+	position: absolute;
+  bottom: 0;
+  top: 30px;
+  height: calc(100% - 30px);
+  width: 100%;
+}
+
+.taskbar{
+	height:30px;
+	width: 100%;
+  background-color: #475558;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.taskbar-left{
+  position: relative;
+	cursor: pointer;
+	height: 30px;
+	width: 30px;
+	background-size: 55%;
+	background-repeat: no-repeat;
+  background-position: 50%;
+  
+  svg{
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+
+    path{
+      transition: 0.15s ease-out;
+    }
+
+    &:hover path{
+      opacity: 1;
+
+      &:nth-child(2){
+        transform: translate(8% , -8%);
+      }
+    }
+  }
+}
+
+.address-bar{
+  overflow: hidden;
+  position: relative;
+	height: 20px;
+	width: 70%;
+	border-radius: 5px;
+	background-color: #fff;
+  font-size: 12px;
+	font-family: verdana, arial, sans-serif;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span{
+    position: relative;
+    z-index: 1;
+  }
+
+  @media( max-width: 400px ){
+    width: 75%;
+    font-size: 11px;
+  }
+}
+
+
+.zoom{
+  position: relative;
+  height: 30px;
+  width: 30px;
+}
+
+.enlarge,
+.shrink{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+	background-image: url(../images/enlarge.png);
+	background-size: 50%;
+	background-repeat: no-repeat;
+  background-position: 50%;
+  
+  display: none;
+}
+
+.shrink{
+  opacity: 0;
+	background-image: url(../images/shrink.png);
+}
+
+
+@media( $portrait ){
+  .enlarge,
+  .shrink{
+    display: none;
+  }
+}
+
+
+.progress-bar{
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+
+  transition: transform 1s;
+  transform: scaleX(0);
+  transform-origin: 0;
+}

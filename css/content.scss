@@ -1,0 +1,189 @@
+html{
+	background: #000;
+	background:$background;
+
+}
+
+body{
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+	text-rendering: optimizeLegibility;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	overflow: hidden;
+}
+
+#dom,
+#portfolio,
+.row,
+.info-text{
+	transform-style: preserve-3d;
+}
+
+video{
+	width: 100%;
+	height: 100%;
+}
+
+
+#dom{
+	top: 0;
+	position: relative;
+	overflow: scroll;
+	overflow-x: hidden;
+	perspective: 50vw;
+	transform-style: preserve-3d;
+	height: 100vh;
+	height: calc(var(--vh, 1vh) * 100);
+	width: 100vw;
+
+	@media($portrait){
+		perspective: 50vw;
+	}
+}
+
+
+#portfolio{
+	position: relative;
+	background-color: transparent;
+	width: 95vw;
+	margin: 0 auto;
+	padding: 30vw 2.5vw calc(#{$footer-height * 3});
+	padding-top: calc((100vh - (( 45vw * 0.6666 ) + 30px)) / 2 );
+	padding-top: calc((var(--vh, 1vh) * 100 - (( 45vw * 0.6666 ) + 30px)) / 2 );
+	// padding top -> Browser module is in center
+	
+	@media( $portrait ){
+		padding-top: 20vw;
+	}
+}
+
+
+.row, 
+.row-inner{
+	position: relative;
+	margin: 0 0 30vw;
+	display: flex;
+	justify-content: center;
+	justify-content: space-between;
+	transform-style: preserve-3d;
+
+	&:last-child{
+		margin-bottom: 0;
+	}
+
+	@media( $portrait ){
+		flex-direction: column;
+	}
+}
+
+.row-inner{
+	width: 100%;
+}
+
+
+
+.info-text{
+	width: 44vw;
+	color: #fff;
+
+	position: relative;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	transform: rotateY( 0.01deg );
+	transform-origin: 0% 0%;
+	z-index: 10;
+
+	@media( $portrait ){
+		transform: rotateY( 0deg );
+		width: 100%;
+		width: 90vw;
+		margin: 0 auto;
+	}
+
+
+	.text-container-shadow,
+	.text-container{
+		width: 130%;
+		transform: rotateY( -45deg ) scaleX(0.58) translate3d(0, 0, 0) translateZ(0);
+		transform-origin: 0% 50%;
+		
+		h1{
+			font-size: 1rem; // do NOT calc due to safari issues on resize
+			position: relative;
+			display: table;
+			perspective: 100vw;
+			transform-style: preserve-3d;
+		}
+
+		h2{
+			font-size: 0.5rem;
+		}
+
+		@media( $portrait ){
+
+			width: 100%;
+			transform: rotateY(0)  scale(1);
+			
+			// portrait transform
+			transform-origin: 50% 0%;
+			transform: rotateX( 0deg ) scale(0.85) translate3d(-2.5%, 0%, 0) translateZ(5vw);
+		}
+	}
+}
+
+
+
+#foot-note{
+	color: white;
+
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	.foot-note-inner{
+		text-align: center;
+	}
+
+	@include font-size;
+
+	span,
+	button{
+		position: relative;
+		display: table;
+		margin: 0 auto 0.5rem;
+	}
+}
+
+a.underline,
+#foot-note button{
+	cursor: pointer;
+	position: relative;
+	padding: 0.03rem;
+	transition: color 0.15s ease-out;
+	
+	&:after{
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 0;
+		background: white;
+		height: 0%;
+		left: 0;
+		top: 50%;
+		z-index: -1;
+		transform: translate(0, -50%);
+		transition: height 0.15s ease-in;
+	}
+
+	&:hover{
+		&:after{
+			transition: height 0.15s ease-out;
+			height: 100%;
+		}
+		color: black;
+	}
+}
